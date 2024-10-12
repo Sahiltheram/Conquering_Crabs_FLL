@@ -9,7 +9,7 @@ import move_functions
 
 
 
-def run1 (ev3, walter, attach_left_motor, attach_right_motor, right_motor, left_motor):
+def run1 (ev3, walter, attach_left_motor, attach_right_motor):
     walter.straight(315)
     walter.turn(-45)
     walter.straight(220)
