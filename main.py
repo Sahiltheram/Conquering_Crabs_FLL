@@ -10,6 +10,8 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 from run1 import run1
 from run2 import run2
 from run3 import run3
+from run4 import run4
+
 
 # This program requires LEGO EV3 MicroPython v2.0 or higher.
 # Click "Open user guide" on the EV3 extension tab for more information.
@@ -27,6 +29,5 @@ walter.settings(400, 200, 200, 75)
 # Insert function in every run:
 
 
-
-run3(ev3, walter, attach_left_motor, attach_right_motor)
+run4(ev3, walter, attach_left_motor, attach_right_motor)
 
