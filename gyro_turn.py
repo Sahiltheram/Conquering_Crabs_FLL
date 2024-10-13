@@ -13,11 +13,18 @@ attach_left_motor = Motor(Port.A)
 attach_right_motor = Motor(Port.D)
 gyro = GyroSensor(Port.S1)
 
+def set_speed(error, threshold_test, maxspeed, minspeed):
+
+    speed_set = (((error / threshold_test) * (maxspeed - minspeed)) + minspeed)
+    #print (speed_set)
+    return (speed_set)
+
+
 def gyro_turn(angle):
 
-    min_speed = 30
-    max_speed = 1000
-    threshold = 25
+    min_speed = 60
+    max_speed = 600
+    threshold = angle
     speed = max_speed
 
     gyro.reset_angle(0)
@@ -26,11 +33,11 @@ def gyro_turn(angle):
         
         rem_dist = angle
            
-        print("STARTING!!")
+        #print("STARTING!!")
 
         while (rem_dist > 0): 
             
-            print(rem_dist, gyro.angle(), speed)
+            #print(rem_dist, gyro.angle(), speed)
 
             rem_dist = (angle - gyro.angle())
 
@@ -39,16 +46,18 @@ def gyro_turn(angle):
             
             if (rem_dist < threshold):
                 if (speed > min_speed):
-                    speed -= ((max_speed - min_speed) / threshold)
+                    speed = (set_speed(rem_dist, threshold, max_speed, min_speed))
                 else:
                     speed = min_speed
             
             else:
                 speed = max_speed
 
-            if rem_dist < 5:
+            if rem_dist < 1:
                 break
 
         left_motor.hold()
         right_motor.hold()
+
+        print(gyro.angle())
 
