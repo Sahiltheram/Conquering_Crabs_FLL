@@ -9,6 +9,8 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 from run1 import run1
 from run2 import run2
+from run3 import run3
+from run4 import run4
 
 
 # This program requires LEGO EV3 MicroPython v2.0 or higher.
@@ -25,10 +27,7 @@ walter = DriveBase(left_motor, right_motor, 62.4, 98.4)
 walter.settings(400, 200, 200, 75)
 
 # Insert function in every run:
-def walter_run_for_seconds(speed, seconds):
-    left_motor.run_time(speed, seconds, Stop.HOLD, False)
-    right_motor.run_time(speed, seconds, Stop.HOLD, True)
 
 
-run1(ev3, walter, attach_left_motor, attach_right_motor, right_motor, left_motor, walter_run_for_seconds)
+run4(ev3, walter, attach_left_motor, attach_right_motor)
 
