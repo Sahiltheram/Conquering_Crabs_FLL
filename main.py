@@ -11,6 +11,7 @@ from run1 import run1
 from run2 import run2
 from run3 import run3
 from run4 import run4
+from run5 import run5
 
 
 # This program requires LEGO EV3 MicroPython v2.0 or higher.
@@ -29,5 +30,6 @@ walter.settings(400, 200, 200, 75)
 # Insert function in every run:
 
 
-run4(ev3, walter, attach_left_motor, attach_right_motor)
+run5(ev3, walter, attach_left_motor, attach_right_motor)
+
 
