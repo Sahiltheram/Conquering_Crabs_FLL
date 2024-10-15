@@ -6,6 +6,8 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
+#Coral reef area
+
 def run3 (ev3, walter, attach_left_motor, attach_right_motor):   
      attach_left_motor.run_time(-700, 700, Stop.COAST, wait=True)
      walter.straight(185)
@@ -17,4 +19,6 @@ def run3 (ev3, walter, attach_left_motor, attach_right_motor):
      walter.turn(40)
      walter.straight(495)
      walter.turn(-125)
-     walter.straight(70)
+     walter.straight(60)
+     walter.straight(85)
+
