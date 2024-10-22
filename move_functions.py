@@ -9,14 +9,17 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 def walter_run_for_seconds(right_motor, left_motor, speed, seconds):
     left_motor.run_time(speed, seconds, Stop.HOLD, False)
     right_motor.run_time(speed, seconds, Stop.HOLD, True)
-    
 
-def move_attachment_down(speed, degrees, attach_motor):
-    #speed and degrees here should always be postive
-    attach_motor.run_angle(-speed, degrees, Stop.HOLD, True)
+def claw_up(left_motor, speed, angle):
+    left_motor.run_angle(speed, angle)
 
+def claw_down(left_motor, speed, angle):
+    left_motor.run_angle(speed, -angle)
 
-def move_attachment_up(speed, degrees, attach_motor):
-    #speed and degrees here should always be postive
-    attach_motor.run_angle(speed, degrees, Stop.HOLD, True)
+def claw_up_coast(left_motor, speed, angle):
+    left_motor.run_angle(speed, angle, Stop.COAST)
+
+def claw_down_coast(left_motor, speed, angle):
+    left_motor.run_angle(speed, -angle, Stop.COAST)
+
 

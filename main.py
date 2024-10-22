@@ -7,6 +7,8 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
+from move_functions import *
+
 from run1 import run1
 from run2 import run2
 from run3 import run3
@@ -31,6 +33,7 @@ walter.settings(400, 200, 200, 75)
 # Insert function in every run:
 
 
-run5(ev3, walter, attach_left_motor, attach_right_motor)
-
-
+#run5(ev3, walter, attach_left_motor, attach_right_motor)
+ev3.speaker.beep(400, 400) 
+attach_left_motor.run_until_stalled(500, Stop.COAST)
+ev3.speaker.beep(400, 400)
