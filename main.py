@@ -14,7 +14,8 @@ from run2 import run2
 from run3 import run3
 from run4 import run4
 from run5 import run5
-from gyro_turn import gyro_turn
+from test import test
+from gyro_turn import *
 
 
 # Define variables:
@@ -24,7 +25,7 @@ run_select = 1
 # Create your objects here.
 ev3 = EV3Brick()
 left_motor = Motor(Port.B, Direction.COUNTERCLOCKWISE)
-right_motor = Motor(Port.C, Direction.CLOCKWISE)
+right_motor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
 attach_left_motor = Motor(Port.A)
 attach_right_motor = Motor(Port.D)
 walter = DriveBase(left_motor, right_motor, 62.4, 98.4)

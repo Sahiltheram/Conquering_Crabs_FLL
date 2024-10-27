@@ -17,3 +17,4 @@ def run5 (ev3, walter, attach_left_motor, attach_right_motor):
     walter.turn(92)
     walter.straight(300)
     attach_left_motor.run_time(700, 700, Stop.HOLD, wait=True)
+    walter.turn(55)
