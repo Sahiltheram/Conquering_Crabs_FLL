@@ -5,7 +5,7 @@ from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
-import move_functions
+from move_functions import *
 
 
 
@@ -17,8 +17,8 @@ def run1 (ev3, walter, left_motor, right_motorattach_left_motor, attach_right_mo
     walter.straight(-165)
     walter.turn(50)
 #krill_numero_uno
-    walter.straight(75)
-    walter.turn(40)
+    walter.straight(71)
+    walter.turn(52.5)
 #change_shipping_lanes
     attach_left_motor.run_time(-700, 700, Stop.COAST, wait=True)
     walter.straight(50)
@@ -28,16 +28,24 @@ def run1 (ev3, walter, left_motor, right_motorattach_left_motor, attach_right_mo
     ev3.speaker.beep(500,200)
     walter.straight(-50)
     attach_left_motor.run_angle(300, 180, Stop.COAST, wait=True)
-#get_the_krill+sample
-    walter.turn(-60)
-    wait(3000)
-    walter.straight(390)
-    walter.straight(-170)
+#get_the_krill
     walter.turn(-70)
+    walter.straight(400)
+    walter.straight(-180)
+    walter.turn(-60)
     walter.straight(70)
-    walter.straight(-10)
-    walter.turn(165)
+#radar    
+    walter.turn(25)
+    wait(3000)
     walter.straight(100)
-    walter.straight(-200)
-    walter.turn(85)
-    walter.straight(350)
+    attach_right_motor.run_angle(300, 80, Stop.COAST, wait=TRUE)
+    
+   
+    
+    
+    #walter.straight(-10)
+    #walter.turn(165)
+    #walter.straight(100)
+    #walter.straight(-200)
+    #walter.turn(85)
+    #walter.straight(350)
