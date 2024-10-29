@@ -15,7 +15,7 @@ from run3 import run3
 from run4 import run4
 from run5 import run5
 from test import test
-from gyro_turn import *
+#from gyro_turn import *
 #from gyro_turn import gyro_turn
 
 
