@@ -6,10 +6,11 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 import move_functions
-
+from gyro_turn import gyro_turn
+\
 
  #starting push boat
-def run5 (ev3, walter, attach_left_motor, attach_right_motor):
+def run5 (ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro):
     walter.straight(225)
     walter.straight(-55)
     walter.turn(-90)

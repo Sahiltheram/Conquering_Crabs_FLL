@@ -30,11 +30,10 @@ attach_left_motor = Motor(Port.A)
 attach_right_motor = Motor(Port.D)
 walter = DriveBase(left_motor, right_motor, 62.4, 98.4)
 walter.settings(400, 200, 200, 75)
+gyro = GyroSensor(Port.S1)
 
 # Insert function in every run:
 
+run3(ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro)
 
-#run5(ev3, walter, attach_left_motor, attach_right_motor)
-ev3.speaker.beep(400, 400) 
-attach_left_motor.run_until_stalled(500, Stop.COAST)
-ev3.speaker.beep(400, 400)
+

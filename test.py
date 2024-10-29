@@ -5,13 +5,9 @@ from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
-from gyro_turn import gyro_turn
+import move_functions
 
 
-def run4 (ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro):
+
+def test (ev3, walter, attach_left_motor, attach_right_motor):
     walter.straight(700)
-    walter.turn(45)
-    walter.straight(50)
-    walter.straight(-50)
-    walter.turn(-53)
-    walter.straight(-700)

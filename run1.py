@@ -9,7 +9,7 @@ import move_functions
 
 
 
-def run1 (ev3, walter, attach_left_motor, attach_right_motor):
+def run1 (ev3, walter, left_motor, right_motorattach_left_motor, attach_right_motor, gyro):
 #unexpected encounter
     walter.straight(300)
     walter.turn(-55)
