@@ -16,11 +16,12 @@ from run4 import run4
 from run5 import run5
 from test import test
 from gyro_turn import *
+#from gyro_turn import gyro_turn
 
 
 # Define variables:
 
-run_select = 1
+run_select = 5
 
 # Create your objects here.
 ev3 = EV3Brick()
@@ -34,7 +35,6 @@ walter.settings(400, 200, 200, 75)
 # Insert function in every run:
 
 
-#run5(ev3, walter, attach_left_motor, attach_right_motor)
-ev3.speaker.beep(400, 400) 
-attach_left_motor.run_until_stalled(500, Stop.COAST)
-ev3.speaker.beep(400, 400)
+run5(ev3, walter, attach_left_motor, attach_right_motor)
+
+
