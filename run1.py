@@ -11,9 +11,10 @@ from move_functions import *
 
 def run1 (ev3, walter, left_motor, right_motorattach_left_motor, attach_right_motor, gyro):
 #unexpected encounter
-    walter.straight(300)
+    walter.straight(280)
     walter.turn(-55)
-    walter.straight(175)
+    walter.straight(185)
+    wait(5000)
     walter.straight(-165)
     walter.turn(50)
 #krill_numero_uno
@@ -31,14 +32,21 @@ def run1 (ev3, walter, left_motor, right_motorattach_left_motor, attach_right_mo
 #get_the_krill
     walter.turn(-70)
     walter.straight(400)
-    walter.straight(-180)
-    walter.turn(-60)
-    walter.straight(70)
+    # walter.straight(-180)
+    # walter.turn(-60)
+    # walter.straight)
+    # walter.turn(-70)
+    # walter.straight(100)
+    # wait(1000)
+    # claw_down(left_motor, 100, 180)
+    # wait(1000)
+    # walter.straight(-200)
+
 #radar    
-    walter.turn(25)
-    wait(3000)
-    walter.straight(100)
-    attach_right_motor.run_angle(300, 80, Stop.COAST, wait=TRUE)
+    # walter.turn(25)
+    # wait(3000)
+    # walter.straight(100)
+    # attach_right_motor.run_angle(300, 80, Stop.COAST, wait=TRUE)
     
    
     
