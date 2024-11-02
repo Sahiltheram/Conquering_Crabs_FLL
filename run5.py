@@ -6,8 +6,8 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 import move_functions
-from gyro_turn import gyro_turn
-\
+from gyro_turn import *
+
 
  #starting push boat
 def run5 (ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro):
@@ -15,19 +15,24 @@ def run5 (ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_
     walter.straight(-89)
     walter.turn(-95)
     walter.straight(-55)
-    walter.straight(210)
-    walter.turn(91)
-    walter.straight(341)
-    walter.turn(42)
-    walter.straight(32)
+    walter.straight(215)
+    gyro_turn(90, left_motor, right_motor, gyro, walter)
+    walter.straight(335)
+    gyro_turn(22, left_motor, right_motor, gyro, walter)
+    walter.straight(20)
     attach_right_motor.run_angle(700, -175, Stop.COAST, wait=True)
     walter.straight(450)
     attach_right_motor.run_angle(700, 170, Stop.COAST, wait=True)
-    walter.turn(-60)
     walter.straight(-150)
-    walter.turn(60)
+    gyro_turn(-90, left_motor, right_motor, gyro, walter)
+    walter.straight(-160)
+    gyro_turn(90, left_motor, right_motor, gyro, walter)
     walter.straight(400)
-    wlater.straight
+    walter.straight(-200)
+    gyro_turn(-90, left_motor, right_motor, gyro, walter)
+    walter.straight(160)
+    gyro_turn(90, left_motor, right_motor, gyro, walter)
+    walter.straight(100)
     #walter.turn(-130)
     #attach_left_motor.run_angle(700, 148, Stop.COAST, wait=True)
     #walter.turn(-18)
