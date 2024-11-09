@@ -6,31 +6,35 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 from move_functions import *
+from gyro_turn import gyro_turn
 
 
 
-def run1 (ev3, walter, left_motor, right_motorattach_left_motor, attach_right_motor, gyro):
+def run1 (ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro):
 #unexpected encounter
+    left_motor.reset_angle(0)
+    right_motor.reset_angle(0)
     walter.straight(280)
-    walter.turn(-55)
-    walter.straight(185)
-    wait(5000)
+    gyro_turn(-51, left_motor, right_motor, gyro, walter)
+    walter.straight(240)
     walter.straight(-165)
-    walter.turn(50)
-#krill_numero_uno
-    walter.straight(71)
-    walter.turn(52.5)
+    gyro_turn(85, left_motor, right_motor, gyro, walter)
 #change_shipping_lanes
     attach_left_motor.run_time(-700, 700, Stop.COAST, wait=True)
-    walter.straight(50)
-    attach_left_motor.run_angle(300, 30, Stop.HOLD, wait=True)
-    walter.turn(45)
+    walter.straight(115)
+    attach_left_motor.run_angle(300, 35, Stop.HOLD, True)
+    wait(1000)
+    walter.stop()
+    gyro_turn(20, left_motor, right_motor, gyro, walter)
+    walter.straight(-50)
     attach_left_motor.run_angle(75, -10, Stop.COAST, wait=True)
     ev3.speaker.beep(500,200)
     walter.straight(-50)
     attach_left_motor.run_angle(300, 180, Stop.COAST, wait=True)
 #get_the_krill
-    walter.turn(-70)
+    walter.turn(-55)
+    walter.straight(400)
+    gyro_turn(-16.99, left_motor, right_motor, gyro, walter)
     walter.straight(400)
     # walter.straight(-180)
     # walter.turn(-60)

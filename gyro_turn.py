@@ -10,8 +10,8 @@ def set_speed(error, threshold_test, maxspeed, minspeed):
     return (speed_set)
 
 def gyro_turn(angle, left_motor, right_motor, gyro, walter):
-    MAX_SPEED = 400
-    MIN_SPEED = 55
+    MAX_SPEED = 300
+    MIN_SPEED = 30
     threshold = abs(angle)
     error_threshold = 3
     direction = 1
