@@ -21,16 +21,14 @@ def run3 (ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_
      wait(800)
      walter.straight(-50)
      claw_up(attach_left_motor, 100, 30)
-     attach_left_motor.hold()
-     wait(800)
+     wait(5000)
+     ev3.speaker.beep(4000, 500)
      walter.turn(29)
      walter.straight(139)
      wait(500)
-
      claw_down(attach_left_motor, 50, 36)
      walter.turn(-30)
      claw_up_coast(attach_left_motor, 1000, 90)
 
      # walter.straight(60)
      # walter.straight(85)
-

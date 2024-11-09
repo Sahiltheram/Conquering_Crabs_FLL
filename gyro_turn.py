@@ -13,7 +13,7 @@ def gyro_turn(angle, left_motor, right_motor, gyro, walter):
     MAX_SPEED = 300
     MIN_SPEED = 30
     threshold = abs(angle)
-    error_threshold = 3
+    error_threshold = 2
     direction = 1
     if (angle < 0):
         direction = -1
