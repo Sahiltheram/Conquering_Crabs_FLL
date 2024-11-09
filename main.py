@@ -15,6 +15,7 @@ from run3 import run3
 from run4 import run4
 from run5 import run5
 from test import test
+from run5test import *
 #from gyro_turn import *
 #from gyro_turn import gyro_turn
 
@@ -30,11 +31,9 @@ right_motor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
 attach_left_motor = Motor(Port.A)
 attach_right_motor = Motor(Port.D)
 walter = DriveBase(left_motor, right_motor, 62.4, 98.4)
-walter.settings(400, 200, 200, 75)
+walter.settings(400, 400, 200, 200)
 gyro = GyroSensor(Port.S1)
 
 # Insert function in every run:
 
-run3(ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro)
-
-
+run5test(ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro)
