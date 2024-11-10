@@ -6,24 +6,57 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
-def walter_run_for_seconds(right_motor, left_motor, left_speed, right_speed, seconds):
-    left_motor.run_time(left_speed, seconds, Stop.HOLD, False)
-    right_motor.run_time(right_speed, seconds, Stop.HOLD, True)
+left_motor = None
+right_motor = None
 
-def claw_up(left_motor, speed, angle):
+def set_motors(left_motor1, right_motor1):
+    global left_motor, right_motor
+    left_motor = left_motor1
+    right_motor = right_motor1
+
+def walter_run_for_seconds(wheel_left_motor, wheel_right_motor, left_speed, right_speed, seconds):
+    wheel_left_motor.run_time(left_speed, seconds, Stop.HOLD, False)
+    wheel_right_motor.run_time(right_speed, seconds, Stop.HOLD, True)
+
+def claw_up(speed, angle):
     left_motor.reset_angle(0)
     left_motor.run_angle(speed, angle)
 
-def claw_down(left_motor, speed, angle):
+def claw_down(speed, angle):
     left_motor.reset_angle(0)
     left_motor.run_angle(speed, -angle)
 
-def claw_up_coast(left_motor, speed, angle):
+def claw_up_coast(speed, angle):
     left_motor.reset_angle(0)
     left_motor.run_angle(speed, angle, Stop.COAST)
 
-def claw_down_coast(left_motor, speed, angle):
+def claw_down_coast(speed, angle):
     left_motor.reset_angle(0)
     left_motor.run_angle(speed, -angle, Stop.COAST)
+
+def stick_up(speed, angle):
+    right_motor.reset_angle(0)
+    right_motor.run_angle(speed, angle)
+
+def stick_down(speed, angle):
+    right_motor.reset_angle(0)
+    right_motor.run_angle(speed, -angle)
+
+def stick_up_coast(speed, angle):
+    right_motor.reset_angle(0)
+    right_motor.run_angle(speed, angle, Stop.COAST)
+
+def stick_down_coast(speed, angle):
+    right_motor.reset_angle(0)
+    right_motor.run_angle(speed, -angle, Stop.COAST)
+
+def stick_down_stalled(speed, angle):
+    right_motor.reset_angle(0)
+    right_motor.run_until_stalled(-speed, Stop.HOLD, duty_limit = None)
+
+def stick_up_stalled(speed, angle):
+    right_motor.reset_angle(0)
+    right_motor.run_until_stalled(speed, Stop.HOLD, duty_limit = None)
+
 
 

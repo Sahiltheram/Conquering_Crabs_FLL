@@ -25,6 +25,7 @@ from run5test import *
 run_select = 5
 
 # Create your objects here.
+set_motors(attach_left_motor, attach_right_motor)
 ev3 = EV3Brick()
 left_motor = Motor(Port.B, Direction.COUNTERCLOCKWISE)
 right_motor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
