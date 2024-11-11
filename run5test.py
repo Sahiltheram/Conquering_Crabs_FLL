@@ -20,7 +20,7 @@ def run5test (ev3, walter, left_motor, right_motor, attach_left_motor, attach_ri
     gyro_turn(-70, left_motor, right_motor, gyro, walter)
     walter.straight(-100)
     walter.straight(246)
-    gyro_turn(90, left_motor, right_motor, gyro, walter)
+    gyro_turn(92, left_motor, right_motor, gyro, walter)
     walter.straight(300)
     gyro_turn(32.5, left_motor, right_motor, gyro, walter)
     wait(500)

@@ -58,5 +58,38 @@ def stick_up_stalled(speed, angle):
     right_motor.reset_angle(0)
     right_motor.run_until_stalled(speed, Stop.HOLD, duty_limit = None)
 
+def walter_align_color(wheel_left_motor, wheel_right_motor, left_speed, right_speed, color_sensor_right, color_sensor_left):
+    wheel_left_motor.run(left_speed)
+    wheel_right_motor.run(right_speed)
+    
+    is_stopped_left = False
+    is_stopped_right = False
+    
+    while True:
+        if color_sensor_left.reflection() > 50:
+            wheel_left_motor.hold()
+            is_stopped_left = True
+        if color_sensor_right.reflection() > 50:
+            wheel_right_motor.hold()
+            is_stopped_right = True
+        if (is_stopped_left) and (is_stopped_right):
+            break
+    wheel_left_motor.run(left_speed)
+    wheel_right_motor.run(right_speed)
+    
+    is_stopped_left = False
+    is_stopped_right = False
+    
+    while True:
+        if color_sensor_left.reflection() < 10:
+            wheel_left_motor.hold()
+            is_stopped_left = True
+        if color_sensor_right.reflection() < 10:
+            wheel_right_motor.hold()
+            is_stopped_right = True
+        if (is_stopped_left) and (is_stopped_right):
+            break
+
+
 
 

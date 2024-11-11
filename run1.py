@@ -49,6 +49,6 @@ def run1 (ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_
     claw_down_coast(700, 98)
     wait(3000)
     gyro_turn(-30, left_motor, right_motor, gyro, walter)
-    walter.straight(-30)
+    walter.straight(-20)
     gyro_turn(-54, left_motor, right_motor, gyro, walter)
     walter.straight(-1000)
