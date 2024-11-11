@@ -81,10 +81,10 @@ def walter_align_color(wheel_left_motor, wheel_right_motor, left_speed, right_sp
     is_stopped_right = False
     
     while True:
-        if color_sensor_left.reflection() < 10:
+        if color_sensor_left.reflection() < 15:
             wheel_left_motor.hold()
             is_stopped_left = True
-        if color_sensor_right.reflection() < 10:
+        if color_sensor_right.reflection() < 15:
             wheel_right_motor.hold()
             is_stopped_right = True
         if (is_stopped_left) and (is_stopped_right):
