@@ -25,12 +25,12 @@ from run5test import *
 run_select = 5
 
 # Create your objects here.
-set_motors(attach_left_motor, attach_right_motor)
 ev3 = EV3Brick()
 left_motor = Motor(Port.B, Direction.COUNTERCLOCKWISE)
 right_motor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
 attach_left_motor = Motor(Port.A)
 attach_right_motor = Motor(Port.D)
+set_motors(attach_left_motor, attach_right_motor)
 walter = DriveBase(left_motor, right_motor, 62.4, 98.4)
 walter.settings(400, 400, 200, 200)
 gyro = GyroSensor(Port.S1)
@@ -38,3 +38,4 @@ gyro = GyroSensor(Port.S1)
 # Insert function in every run:
 
 run5test(ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro)
+
