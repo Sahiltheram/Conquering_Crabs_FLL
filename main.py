@@ -34,8 +34,10 @@ set_motors(attach_left_motor, attach_right_motor)
 walter = DriveBase(left_motor, right_motor, 62.4, 98.4)
 walter.settings(400, 400, 200, 200)
 gyro = GyroSensor(Port.S1)
+color_sensor_right = ColorSensor(Port.S2)
+color_sensor_left = ColorSensor(Port.S3)
 
 # Insert function in every run:
 
-run5test(ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro)
-
+run2(ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro, color_sensor_right, color_sensor_left)
+#walter_align_color(left_motor, right_motor, 75, 75, color_sensor_right, color_sensor_left)
