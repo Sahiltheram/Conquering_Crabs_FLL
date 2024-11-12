@@ -35,9 +35,9 @@ def run1 (ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_
     walter.straight(-50)
     attach_left_motor.run_angle(300, 180, Stop.COAST, wait=True)
 # move towards radar
-    walter.turn(-65)
+    gyro_turn(-65, left_motor, right_motor, gyro, walter)
     walter.straight(475)
-    walter.turn(-42)
+    gyro_turn(-42, left_motor, right_motor, gyro, walter)
     walter.straight(30)
 # do the radar
     claw_down(350, 192)
