@@ -58,5 +58,9 @@ def stick_up_stalled(speed, angle):
     right_motor.reset_angle(0)
     right_motor.run_until_stalled(speed, Stop.HOLD, duty_limit = None)
 
+def claw_up_stalled(speed):    
+    left_motor.run_until_stalled(speed, Stop.HOLD, duty_limit = 100)
+    left_motor.reset_angle(0)
+
 
 
