@@ -14,7 +14,8 @@ def set_motors(left_motor1, right_motor1):
     left_motor = left_motor1
     right_motor = right_motor1
 
-def walter_run_for_seconds(wheel_left_motor, wheel_right_motor, left_speed, right_speed, seconds):
+def walter_run_for_seconds(wheel_left_motor, wheel_right_motor, left_speed, right_speed, seconds, walter):
+    walter.stop()
     wheel_left_motor.run_time(left_speed, seconds, Stop.HOLD, False)
     wheel_right_motor.run_time(right_speed, seconds, Stop.HOLD, True)
 
@@ -91,9 +92,26 @@ def walter_align_color(wheel_left_motor, wheel_right_motor, left_speed, right_sp
             break
 
 
-def claw_up_stalled(speed):    
-    left_motor.run_until_stalled(speed, Stop.HOLD, duty_limit = 100)
+def claw_up_stalled(speed, dutylimit):    
     left_motor.reset_angle(0)
+    left_motor.run_until_stalled(speed, Stop.HOLD, duty_limit = dutylimit)
+    left_motor.reset_angle(0)
+
+def claw_down_stalled(speed, dutylimit):    
+    left_motor.reset_angle(0)
+    left_motor.run_until_stalled(-speed, Stop.HOLD, duty_limit = dutylimit)
+    left_motor.reset_angle(0)
+
+def stick_down_seconds(speed, seconds):
+    right_motor.run_time(-speed, seconds)
+    right_motor.reset_angle(0)
+
+def stick_up_seconds(speed, seconds):
+    right_motor.run_time(speed, seconds)
+    right_motor.reset_angle(0)
+
+
+
 
 
 
