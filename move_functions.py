@@ -51,11 +51,11 @@ def stick_down_coast(speed, angle):
     right_motor.reset_angle(0)
     right_motor.run_angle(speed, -angle, Stop.COAST)
 
-def stick_down_stalled(speed, angle):
+def stick_down_stalled(speed):
     right_motor.reset_angle(0)
     right_motor.run_until_stalled(-speed, Stop.HOLD, duty_limit = None)
 
-def stick_up_stalled(speed, angle):
+def stick_up_stalled(speed):
     right_motor.reset_angle(0)
     right_motor.run_until_stalled(speed, Stop.HOLD, duty_limit = None)
 
