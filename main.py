@@ -9,12 +9,11 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 from move_functions import *
 
-from run1 import run1
-from run2 import run2
-from run3 import run3
-from run4 import run4
-from run5 import run5
-from test import test
+from run1 import *
+from run2 import *
+from run3 import *
+from run4 import *
+from run5 import *
 from run5test import *
 #from gyro_turn import *
 #from gyro_turn import gyro_turn
