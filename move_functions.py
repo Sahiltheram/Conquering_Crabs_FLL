@@ -8,6 +8,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 left_motor = None
 right_motor = None
+timer = StopWatch()
 
 def set_motors(left_motor1, right_motor1):
     global left_motor, right_motor
@@ -118,7 +119,45 @@ def stick_up_seconds(speed, seconds):
     right_motor_motor.run_time(speed, seconds)
     right_motor_motor.reset_angle(0)
 
+def claw_down_timeout(speed, angle, timeout_seconds):
+    timeout_ms = timeout_seconds * 1000
+    left_motor.reset_angle(0)
+    left_motor.run(-speed)
+    timer.reset()
+    while True:
+        if (left_motor.angle() < -angle) or (timer.time() > timeout_ms):
+            break
+    left_motor.hold()
 
+def claw_up_timeout(speed, angle, timeout_seconds):
+    timeout_ms = timeout_seconds * 1000
+    left_motor.reset_angle(0)
+    left_motor.run(speed)
+    timer.reset()
+    while True:
+        if (left_motor.angle() > angle) or (timer.time() > timeout_ms):
+            break
+    left_motor.hold()
+
+def stick_down_timeout(speed, angle, timeout_seconds):
+    timeout_ms = timeout_seconds * 1000
+    right_motor.reset_angle(0)
+    right_motor.run(-speed)
+    timer.reset()
+    while True:
+        if (right_motor.angle() < -angle) or (timer.time() > timeout_ms):
+            break
+    right_motor.hold()
+    
+def stick_up_timeout(speed, angle, timeout_seconds):
+    timeout_ms = timeout_seconds * 1000
+    right_motor.reset_angle(0)
+    right_motor.run(speed)
+    timer.reset()
+    while True:
+        if (right_motor.angle() > angle) or (timer.time() > timeout_ms):
+            break
+    right_motor.hold()
 
 
 
