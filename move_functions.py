@@ -102,14 +102,21 @@ def claw_down_stalled(speed, dutylimit):
     left_motor.run_until_stalled(-speed, Stop.HOLD, duty_limit = dutylimit)
     left_motor.reset_angle(0)
 
+def claw_down_seconds(speed, seconds):
+    left_motor.run_time(-speed, seconds)
+    left_motor.reset_angle(0)
+
+def claw_up_seconds(speed, seconds):
+    left_motor.run_time(speed, seconds)
+    left_motor.reset_angle(0)
+
 def stick_down_seconds(speed, seconds):
     right_motor.run_time(-speed, seconds)
     right_motor.reset_angle(0)
 
 def stick_up_seconds(speed, seconds):
-    right_motor.run_time(speed, seconds)
-    right_motor.reset_angle(0)
-
+    right_motor_motor.run_time(speed, seconds)
+    right_motor_motor.reset_angle(0)
 
 
 

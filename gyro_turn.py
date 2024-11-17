@@ -47,4 +47,4 @@ def gyro_turn(angle, left_motor, right_motor, gyro, walter):
     left_motor.stop()
     right_motor.stop()
 
-    print("DONE, angle="+str(gyro.angle()))
+    print("DONE, angle = " + str(gyro.angle()) + " degrees")
