@@ -17,8 +17,8 @@ def set_motors(left_motor1, right_motor1):
 
 def walter_run_for_seconds(wheel_left_motor, wheel_right_motor, left_speed, right_speed, seconds, walter):
     walter.stop()
-    wheel_left_motor.run_time(left_speed, seconds, Stop.HOLD, False)
-    wheel_right_motor.run_time(right_speed, seconds, Stop.HOLD, True)
+    wheel_left_motor.run_time(left_speed, seconds * 1000, Stop.HOLD, False)
+    wheel_right_motor.run_time(right_speed, seconds * 1000, Stop.HOLD, True)
 
 def claw_up(speed, angle):
     left_motor.reset_angle(0)
@@ -76,21 +76,21 @@ def walter_align_color(wheel_left_motor, wheel_right_motor, left_speed, right_sp
             is_stopped_right = True
         if (is_stopped_left) and (is_stopped_right):
             break
-    wheel_left_motor.run(left_speed)
-    wheel_right_motor.run(right_speed)
+    # wheel_left_motor.run(left_speed)
+    # wheel_right_motor.run(right_speed)
     
-    is_stopped_left = False
-    is_stopped_right = False
+    # is_stopped_left = False
+    # is_stopped_right = False
     
-    while True:
-        if color_sensor_left.reflection() < 15:
-            wheel_left_motor.hold()
-            is_stopped_left = True
-        if color_sensor_right.reflection() < 15:
-            wheel_right_motor.hold()
-            is_stopped_right = True
-        if (is_stopped_left) and (is_stopped_right):
-            break
+    # while True:
+    #     if color_sensor_left.reflection() < 15:
+    #         wheel_left_motor.hold()
+    #         is_stopped_left = True
+    #     if color_sensor_right.reflection() < 15:
+    #         wheel_right_motor.hold()
+    #         is_stopped_right = True
+    #     if (is_stopped_left) and (is_stopped_right):
+    #         break
 
 
 def claw_up_stalled(speed, dutylimit):    

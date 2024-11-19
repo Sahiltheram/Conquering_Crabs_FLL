@@ -12,16 +12,19 @@ def run2 (ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_
     # this is the commented radar backup mission
     # walter.straight(750)
     # gyro_turn(-73, left_motor, right_motor, gyro, walter)
+    #get_to_sumbersible
     walter.straight(545)
-    gyro_turn(-58, left_motor, right_motor, gyro, walter)
-    walter.straight(540)
+    gyro_turn(-55, left_motor, right_motor, gyro, walter)
+    claw_down(500, 180)
+    walter.straight(500)
     walter.stop()
     walter_align_color(left_motor, right_motor, 40, 40, color_sensor_right, color_sensor_left)
-    gyro_turn(-13, left_motor, right_motor, gyro, walter)
-    walter.straight(-150)
-    stick_down_coast(500, 165)
-    walter.straight(50)
-    stick_up_stalled(300, 0)
-
+    walter_run_for_seconds(left_motor, right_motor, 100, 0, 0.75, walter)
+    #do_submerible+angler_fish
+    claw_up_stalled(300,70)
+    claw_down(300, 30)
+    gyro_turn(-70, left_motor, right_motor, gyro, walter)
+    claw_up_coast(700, 90)
+    walter.straight(250)
     
 
