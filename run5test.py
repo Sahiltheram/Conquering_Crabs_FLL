@@ -50,7 +50,7 @@ def run5test (ev3, walter, left_motor, right_motor, attach_left_motor, attach_ri
     walter.straight(-192)
     attach_right_motor.run_until_stalled(125, Stop.COAST, duty_limit=70)
     walter.straight(-75)
-    attach_right_motor.run_until_stalled(350, 130, Stop.COAST, duty_limit=70)
+    attach_right_motor.run_until_stalled(130, Stop.COAST, duty_limit=70)
     walter.turn(-20)
     walter.straight(300)
     walter.turn(20)
