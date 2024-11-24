@@ -39,6 +39,5 @@ color_sensor_left = ColorSensor(Port.S3)
 
 # Insert function in every run:
 
-masterProgram(ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro, color_sensor_right, color_sensor_left)
-#walter_align_color(left_motor, right_mo
-# tor, 75, 75, color_sensor_right, color_sensor_left)
+run2(ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro, color_sensor_right, color_sensor_left)
+#walter_align_color(left_motor, right_motor, 75, 75, color_sensor_right, color_sensor_left)
