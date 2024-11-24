@@ -16,7 +16,7 @@ from run5test import *
 from gyro_turn import gyro_turn
 
 
-def masterprogram(ev3):
+def masterProgram(ev3):
 
     ev3.screen.clear()
     run_select = 1

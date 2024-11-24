@@ -15,6 +15,7 @@ from run3 import *
 from run4 import *
 from run5 import *
 from run5test import *
+from masterProgram import *
 #from gyro_turn import *
 #from gyro_turn import gyro_turn
 
@@ -38,5 +39,6 @@ color_sensor_left = ColorSensor(Port.S3)
 
 # Insert function in every run:
 
-run2(ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro, color_sensor_right, color_sensor_left)
-#walter_align_color(left_motor, right_motor, 75, 75, color_sensor_right, color_sensor_left)
+masterProgram(ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro, color_sensor_right, color_sensor_left)
+#walter_align_color(left_motor, right_mo
+# tor, 75, 75, color_sensor_right, color_sensor_left)
