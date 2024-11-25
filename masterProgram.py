@@ -6,14 +6,13 @@ from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile, Font
 
 from move_functions import *
+from gyro_turn import gyro_turn
 
 from run1 import *
 from run2 import *
 from run3 import *
 from run4 import *
 from run5 import *
-from run5test import *
-from gyro_turn import gyro_turn
 
 
 def masterProgram(robot):
@@ -44,13 +43,13 @@ def masterProgram(robot):
 
         if (Button.LEFT in robot.ev3.buttons.pressed()):
             while (Button.LEFT in robot.ev3.buttons.pressed()):
-                wait(10)
+                pass
             run_select -= 1
             robot.ev3.screen.clear()
         
         elif (Button.RIGHT in robot.ev3.buttons.pressed()):
             while (Button.RIGHT in robot.ev3.buttons.pressed()):
-                wait(10)
+                pass
             run_select += 1
             robot.ev3.screen.clear()
         
@@ -68,7 +67,7 @@ def masterProgram(robot):
                 run3_part1(robot)    
                 run3_part2(robot)           
             elif run_select == 4:
-                run5test(robot)   
+                run5(robot)   
 
             run_select += 1
             robot.ev3.screen.clear()
