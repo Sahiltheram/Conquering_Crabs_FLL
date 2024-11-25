@@ -8,6 +8,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 from gyro_turn import gyro_turn
 from move_functions import *
 
+
 def run2 (robot):
     # this is the commented radar backup mission
     # walter.straight(750)
@@ -15,46 +16,46 @@ def run2 (robot):
 
     #get to sumbersible
 
-    walter.straight(-35)
-    walter.straight(570)
+    robot.walter.straight(-35)
+    robot.walter.straight(570)
 
     gyro_turn(-55, left_motor, right_motor, gyro, walter)
     claw_down(500, 170)
-    walter.straight(500)
-    walter.stop()
-    walter_align_color(left_motor, right_motor, 40, 40, color_sensor_right, color_sensor_left)
-    walter_run_for_seconds(left_motor, right_motor, 100, 0, 0.75, walter)
+    robot.walter.straight(500)
+    robot.walter.stop()
+    walter_align_color(robot, 40, 40)
+    walter_run_for_seconds(robot, 100, 0, 0.75)
 
     # do submerible & angler fish
 
-    claw_up_seconds(60, 2000)
-    claw_down(300, 30)
-    gyro_turn(-10, left_motor, right_motor, gyro, walter)
-    walter.straight(-60)
-    gyro_turn(-57, left_motor, right_motor, gyro, walter)
-    claw_up(700, 90)
-    gyro.reset_angle(0)
+    claw_up_seconds(60, 2000, robot)
+    claw_down(300, 30, robot)
+    gyro_turn(-10, robot)
+    robot.walter.straight(-60)
+    gyro_turn(-57, robot)
+    claw_up(700, 90, robot)
+    robot.gyro.reset_angle(0)
     
-    walter.straight(290)
-    gyro_turn(-gyro.angle(), left_motor, right_motor, gyro, walter)
-    ev3.speaker.beep(500, 500)
-    gyro_turn(8, left_motor, right_motor, gyro, walter)
-    walter.straight(18)
-    walter_run_for_seconds(left_motor, right_motor, 0, 300, 1, walter)
+    robot.walter.straight(290)
+    gyro_turn(-gyro.angle(), robot)
+    robot.ev3.speaker.beep(500, 500)
+    gyro_turn(8, robot)
+    robot.walter.straight(18)
+    walter_run_for_seconds(robot, 0, 300, 1)
     
-    ev3.speaker.beep(500, 500)
+    robot.ev3.speaker.beep(500, 500)
     wait(1000)
 
-    walter.straight(-50)
+    robot.walter.straight(-50)
 
     # align and pick up item
     
-    gyro_turn((-gyro.angle() + 75), left_motor, right_motor, gyro, walter)
-    walter.straight(-30)
-    attach_right_motor.reset_angle(0)
-    attach_right_motor.run_until_stalled(-300, Stop.HOLD, 25)
-    walter.straight(80)
-    stick_up_seconds(195, 1000)
+    gyro_turn((-gyro.angle() + 75), robot)
+    robot.walter.straight(-30)
+    robot.attach_right_motor.reset_angle(0)
+    robot.attach_right_motor.run_until_stalled(-300, Stop.HOLD, 25)
+    robot.walter.straight(80)
+    stick_up_seconds(195, 1000, robot)
     
     # move the stick down without waiting:
     # attach_right_motor.run_angle(200, -150, Stop.HOLD, False)
