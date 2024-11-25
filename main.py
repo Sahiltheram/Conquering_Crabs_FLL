@@ -16,28 +16,7 @@ from run4 import *
 from run5 import *
 from run5test import *
 from masterProgram import *
-#from gyro_turn import *
-#from gyro_turn import gyro_turn
 
+robot = Container()
 
-# Define variables:
-
-run_select = 5
-
-# Create your objects here.
-ev3 = EV3Brick()
-left_motor = Motor(Port.B, Direction.COUNTERCLOCKWISE)
-right_motor = Motor(Port.C, Direction.COUNTERCLOCKWISE)
-attach_left_motor = Motor(Port.A)
-attach_right_motor = Motor(Port.D)
-set_motors(attach_left_motor, attach_right_motor)
-walter = DriveBase(left_motor, right_motor, 62.4, 98.4)
-walter.settings(400, 400, 200, 200)
-gyro = GyroSensor(Port.S1)
-color_sensor_right = ColorSensor(Port.S2)
-color_sensor_left = ColorSensor(Port.S3)
-
-# Insert function in every run:
-
-masterProgram(ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro, color_sensor_right, color_sensor_left)
-#walter_align_color(left_motor, right_motor, 75, 75, color_sensor_right, color_sensor_left)
+masterProgram(robot)

@@ -12,16 +12,16 @@ def set_speed(error, threshold_test, minspeed, maxspeed):
         speed_set = ((error / threshold_test) * maxspeed)
     return (speed_set)
 
-def gyro_turn(angle, left_motor, right_motor, gyro, walter):
+def gyro_turn(angle, robot):
     MAX_SPEED = 400
     MIN_SPEED = 30
     ERROR_THRESHOLD = 2
     ANGLE_FOR_MAX_SPEED = 70
 
-    gyro.reset_angle(0)
-    walter.stop()
+    robot.gyro.reset_angle(0)
+    robot.walter.stop()
     while (True):
-        rem_dist = angle - gyro.angle()
+        rem_dist = angle - robot.gyro.angle()
         if rem_dist > ANGLE_FOR_MAX_SPEED:
             speed = MAX_SPEED
         elif rem_dist < -ANGLE_FOR_MAX_SPEED:
@@ -39,12 +39,12 @@ def gyro_turn(angle, left_motor, right_motor, gyro, walter):
                   speed = MIN_SPEED
                if abs(speed) > MAX_SPEED:
                   speed = MAX_SPEED
-        left_motor.run(speed)
-        right_motor.run(-speed)
+        robot.left_motor.run(speed)
+        robot.right_motor.run(-speed)
         wait(15)
         if abs(rem_dist) < ERROR_THRESHOLD:
             break
-    left_motor.stop()
-    right_motor.stop()
+    robot.left_motor.stop()
+    robot.right_motor.stop()
 
-    print("DONE, angle = " + str(gyro.angle()) + " degrees")
+    print("DONE, angle = " + str(robot.gyro.angle()) + " degrees")
