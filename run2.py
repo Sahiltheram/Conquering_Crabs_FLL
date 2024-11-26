@@ -19,7 +19,7 @@ def run2 (robot):
     robot.walter.straight(-35)
     robot.walter.straight(570)
 
-    gyro_turn(-55, left_motor, right_motor, gyro, walter)
+    gyro_turn(-55, robot)
     claw_down(500, 170)
     robot.walter.straight(500)
     robot.walter.stop()
@@ -69,10 +69,10 @@ def run2 (robot):
     # #go back to base
     
     wait(3000)
-    gyro_turn(-65.4321, left_motor, right_motor, gyro, walter)
+    gyro_turn(-65.4321, robot)
     wait(1000)
     robot.walter.straight(500)
     wait(1000)
-    gyro_turn(-60, left_motor, right_motor, gyro, walter)
+    gyro_turn(-60, robot)
     wait(1000)
     robot.walter.straight(600)
