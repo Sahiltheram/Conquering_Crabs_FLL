@@ -94,8 +94,8 @@ def stick_down_seconds(speed, seconds, robot):
     robot.attach_right_motor.reset_angle(0)
 
 def stick_up_seconds(speed, seconds, robot):
-    robot.attach_right_motor_motor.run_time(speed, seconds)
-    robot.attach_right_motor_motor.reset_angle(0)
+    robot.attach_right_motor.run_time(speed, seconds)
+    robot.attach_right_motor.reset_angle(0)
 
 def claw_down_timeout(speed, angle, timeout_seconds, robot):
     timeout_ms = timeout_seconds * 1000

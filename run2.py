@@ -10,34 +10,48 @@ from move_functions import *
 
 
 def run2 (robot):
-    # this is the commented radar backup mission
+    # the commented radar backup mission:
+
     # walter.straight(750)
     # gyro_turn(-73, left_motor, right_motor, gyro, walter)
 
-    #get to sumbersible
+    # we have to set settings at the beginning of every run
+    
+    robot.walter.settings(600, 350, 300, 115)
+
+    # get to sumbersible
 
     robot.walter.straight(-35)
     robot.walter.straight(570)
-
     gyro_turn(-55, robot)
-    claw_down(500, 170)
+    claw_down(500, 170, robot)
     robot.walter.straight(500)
     robot.walter.stop()
+    
+    # the align color is to align on the line and get to the same angle
+    # the run for seconds does a one-wheel turn to anign on the submersible mission and get attachment to the right place
+
     walter_align_color(robot, 40, 40)
     walter_run_for_seconds(robot, 100, 0, 0.75)
 
-    # do submerible & angler fish
+# do submerible & angler fish
 
     claw_up_seconds(60, 2000, robot)
     claw_down(300, 30, robot)
     gyro_turn(-10, robot)
     robot.walter.straight(-60)
-    gyro_turn(-57, robot)
+    gyro_turn(-53, robot)
     claw_up(700, 90, robot)
-    robot.gyro.reset_angle(0)
     
+    # we reset the angle here so that we know where we are before doing the angler fish mission,
+    # so after doing it, in line 51, we can turn back to that same angle
+    
+    robot.gyro.reset_angle(0)
     robot.walter.straight(290)
-    gyro_turn(-gyro.angle(), robot)
+    gyro_turn(-robot.gyro.angle(), robot)
+
+    # beep to know if robot is not stalling after angler fish mission is done
+
     robot.ev3.speaker.beep(500, 500)
     gyro_turn(8, robot)
     robot.walter.straight(18)
@@ -49,8 +63,9 @@ def run2 (robot):
     robot.walter.straight(-50)
 
     # align and pick up item
+    # turning back to the same angle here again, but also 65 degrees more to stay precise
     
-    gyro_turn((-gyro.angle() + 75), robot)
+    gyro_turn((-robot.gyro.angle() + 65), robot)
     robot.walter.straight(-30)
     robot.attach_right_motor.reset_angle(0)
     robot.attach_right_motor.run_until_stalled(-300, Stop.HOLD, 25)
@@ -66,7 +81,7 @@ def run2 (robot):
     # walter.straight(130)
     # stick_up(100, 50)
     
-    # #go back to base
+    # go back to base
     
     wait(3000)
     gyro_turn(-65.4321, robot)
