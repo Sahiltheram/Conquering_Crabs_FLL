@@ -42,14 +42,12 @@ def masterProgram(robot):
         robot.ev3.screen.draw_text (0, 0, (value), text_color=Color.BLACK, background_color=None)
 
         if (Button.LEFT in robot.ev3.buttons.pressed()):
-            while (Button.LEFT in robot.ev3.buttons.pressed()):
-                pass
+            #wait(15)
             run_select -= 1
             robot.ev3.screen.clear()
         
         elif (Button.RIGHT in robot.ev3.buttons.pressed()):
-            while (Button.RIGHT in robot.ev3.buttons.pressed()):
-                pass
+            #wait(15)
             run_select += 1
             robot.ev3.screen.clear()
         
