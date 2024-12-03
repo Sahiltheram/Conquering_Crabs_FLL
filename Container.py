@@ -58,7 +58,19 @@ class Container:
 
         self.walter = DriveBase(self.left_motor, self.right_motor, 62.4, 98.4)
 
+        #check gyro value before first run
+        gyro1 = self.gyro.angle()
+        wait(500)
+        gyro2 = self.gyro.angle()
+        if gyro1 - gyro2 > 3:
+           self.display_error("calibrate gyro")
+        if gyro1 - gyro2 < -3:
+           self.display_error("calibrate gyro")
 
-        
-
-    
+        #adjust gyro turn based on battery of robot
+        if self.ev3.battery.voltage() < 7000:
+           self.maxspeed = 500
+           self.minspeed = 50
+        else:
+           self.maxspeed = 400
+           self.minspeed = 30

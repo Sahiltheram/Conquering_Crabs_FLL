@@ -14,7 +14,8 @@ from run3 import *
 from run4 import *
 from run5 import *
 
-
+# combines all missions and runs into one program so that it
+# is easier and saves us time to start runs.
 def masterProgram(robot):
 
     robot.ev3.screen.clear()
@@ -31,26 +32,31 @@ def masterProgram(robot):
     robot.ev3.screen.set_font(Font(family=None, size=100, bold=True, monospace=False, lang=None, script=None))
 
     while True:
+        # make sure the run number is valid
         if (run_select > NUMBER_OF_RUNS):
             run_select = NUMBER_OF_RUNS
         if (run_select < 1):
             run_select = 1            
 
+        # display run name on the screen
         value = missions_in_run[run_select]
         robot.ev3.screen.draw_text(80, 60, run_select, text_color=Color.BLACK, background_color=None)
         robot.ev3.screen.set_font(Font(family=None, size=30, bold=False, monospace=False, lang=None, script=None))
         robot.ev3.screen.draw_text (0, 0, (value), text_color=Color.BLACK, background_color=None)
 
+        # left button reduces run
         if (Button.LEFT in robot.ev3.buttons.pressed()):
             #wait(15)
             run_select -= 1
             robot.ev3.screen.clear()
         
+        # right button increases run
         elif (Button.RIGHT in robot.ev3.buttons.pressed()):
             #wait(15)
             run_select += 1
             robot.ev3.screen.clear()
         
+        # center button runs the run
         elif (Button.CENTER in robot.ev3.buttons.pressed()):
             
             lock_motors(True, False, False, True, robot)
@@ -70,6 +76,7 @@ def masterProgram(robot):
             run_select += 1
             robot.ev3.screen.clear()
             
+            # Release motors so we can move the attachments
             release_motors(True, True, True, True, robot)
 
 
