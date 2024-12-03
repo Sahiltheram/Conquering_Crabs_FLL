@@ -65,7 +65,7 @@ def run2 (robot):
     # align and pick up item
     # turning back to the same angle here again, but also 65 degrees more to stay precise
     
-    gyro_turn((-robot.gyro.angle() + 65), robot)
+    gyro_turn((-robot.gyro.angle() + 72.5), robot)
     robot.walter.straight(-30)
     robot.attach_right_motor.reset_angle(0)
     robot.attach_right_motor.run_until_stalled(-300, Stop.HOLD, 25)
@@ -83,11 +83,13 @@ def run2 (robot):
     
     # go back to base
     
-    wait(3000)
-    gyro_turn(-65.4321, robot)
+    wait(1000)
+    gyro_turn(-50, robot)
     wait(1000)
     robot.walter.straight(500)
     wait(1000)
-    gyro_turn(-60, robot)
+    gyro_turn(-40, robot)
     wait(1000)
-    robot.walter.straight(600)
+    robot.walter.straight(300)
+    gyro_turn(-37.5, robot)
+    robot.walter.straight(550)
