@@ -70,7 +70,7 @@ def run3_part2 (robot):
      
      robot.walter.straight(-170)
      gyro_turn(-46, robot)
-     robot.walter.straight(-70)
+     robot.walter.straight(-50)
      claw_down_coast(400, 170, robot)
      claw_down_seconds(100, 500, robot)
           # Unhook Claw Attachment

@@ -35,42 +35,33 @@ def run1 (robot):
     robot.walter.straight(47)
     robot.attach_left_motor.run_angle(300, 8, Stop.HOLD, True)
     robot.walter.straight(18)
-    robot.attach_left_motor.run_angle(300, 30, Stop.HOLD, True)
+    robot.attach_left_motor.run_angle(300, 25, Stop.HOLD, True)
     wait(1000)
-    print(robot.gyro.angle())
     gyro_turn(20, robot)
-    print(robot.gyro.angle())
     robot.walter.stop()
-    claw_down_coast(300, 5, robot)
-    robot.walter.straight(-50)
-    print(robot.gyro.angle())
-    robot.attach_left_motor.run_angle(75, -10, Stop.COAST, wait=True)
-    
-    # beep to know that the robot is doing what it's supposed to / isn't stalling
-    
-    robot.ev3.speaker.beep(500,200)
-
-    robot.walter.straight(-50)
-    robot.attach_left_motor.run_angle(300, 180, Stop.COAST, wait=True)
+    claw_down_timeout(300, 5, 0.3, robot)
+    robot.walter.straight(-100)
+    claw_up_stalled(300, 50, robot)
 
 # move towards radar
 
     gyro_turn(-56, robot)
     robot.walter.straight(470)
-    gyro_turn(-34, robot)
+    gyro_turn(-39, robot)
 
 # do the radar
 
-    claw_down(345, 192, robot)
+    claw_down_timeout(345, 230, 1, robot)
     robot.walter.straight(-210)
 
 # green sample mission
 
     claw_up(300, 150, robot)
     gyro_turn(55, robot)
-    robot.walter.straight(-105)
-    stick_down_coast(700, 200, robot)
-    wait(800)
-    gyro_turn(-45, robot)
+    robot.walter.straight(-140)
+    stick_down_timeout(350, 225, 1, robot)
+    wait(300)
+    gyro_turn(-20, robot)
+    gyro_turn(-20, robot)
     robot.walter.straight(-850)
     stick_up(200, 50, robot)
