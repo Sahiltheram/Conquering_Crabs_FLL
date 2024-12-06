@@ -39,57 +39,85 @@ def run2 (robot):
     claw_up_seconds(60, 2000, robot)
     claw_down(300, 30, robot)
     gyro_turn(-10, robot)
-    robot.walter.straight(-60)
-    gyro_turn(-53, robot)
-    claw_up(700, 90, robot)
+    robot.walter.straight(-150)
+    gyro_turn(-45, robot)
+    claw_up_stalled(900, 60, robot)
     
     # we reset the angle here so that we know where we are before doing the angler fish mission,
     # so after doing it, in line 51, we can turn back to that same angle
     
     robot.gyro.reset_angle(0)
-    robot.walter.straight(290)
-    gyro_turn(-robot.gyro.angle(), robot)
+    robot.walter.straight(370)
+    robot.walter.stop()
+    robot.right_motor.run_angle(400, 80, Stop.HOLD, True)
+    # wait(2000)
+    # gyro_turn(-robot.gyro.angle(), robot)
+    # wait(2000)
 
-    # beep to know if robot is not stalling after angler fish mission is done
+    # # beep to know if robot is not stalling after angler fish mission is done
 
-    robot.ev3.speaker.beep(500, 500)
-    gyro_turn(8, robot)
-    robot.walter.straight(18)
-    walter_run_for_seconds(robot, 0, 300, 1)
+    # robot.ev3.speaker.beep(500, 500)
+    # wait(2000)
+    # gyro_turn(8, robot)6
+    # wait(2000)
+    # robot.walter.straight(18)
+    # wait(2000)
+    # walter_run_for_seconds(robot, 0, 300, 1)
+    # wait(2000)
     
     robot.ev3.speaker.beep(500, 500)
-    wait(1000)
 
     robot.walter.straight(-50)
 
     # align and pick up item
     # turning back to the same angle here again, but also 65 degrees more to stay precise
     
-    gyro_turn((-robot.gyro.angle() + 72.5), robot)
+    gyro_turn(-robot.gyro.angle(), robot)
+    gyro_turn(63, robot)
+
+
     robot.walter.straight(-30)
+
+    
     robot.attach_right_motor.reset_angle(0)
-    robot.attach_right_motor.run_until_stalled(-300, Stop.HOLD, 25)
+    robot.attach_right_motor.run_until_stalled(-300, Stop.COAST, 25)
     robot.walter.straight(80)
     stick_up_seconds(195, 1000, robot)
+    robot.walter.straight(35)
     
-    # move the stick down without waiting:
-    # attach_right_motor.run_angle(200, -150, Stop.HOLD, False)
-
-    # with waiting:
-
-    # stick_down(200, 161)
-    # walter.straight(130)
-    # stick_up(100, 50)
+    wait(100)
     
     # go back to base
     
-    wait(1000)
-    gyro_turn(-50, robot)
-    wait(1000)
-    robot.walter.straight(500)
-    wait(1000)
-    gyro_turn(-40, robot)
-    wait(1000)
-    robot.walter.straight(300)
-    gyro_turn(-37.5, robot)
-    robot.walter.straight(550)
+    gyro_turn(-30, robot)
+    wait(100)
+    robot.walter.straight(190)
+    wait(100)
+    gyro_turn(-45, robot)
+    wait(100)
+    robot.walter.straight(200)
+    wait(100)
+    robot.walter.stop()
+    robot.left_motor.run_angle(250, 160)
+    wait(100)
+    #we use two small moves instead of one big one so we can limit the speed
+    robot.walter.straight(100)
+    robot.walter.straight(50)
+    wait(100)
+    robot.walter.turn(-80) 
+    # walter.stop()
+    # robot.right_motor.run_angle(350, 270)
+    wait(100)
+    #robot.walter.settings(600, 350, 300, 115)<-- increase straight speed eventually
+    robot.walter.straight(650)
+
+    # robot.walter.straight(500)
+    # robot.walter.straight(50)
+    # wait(2000)
+    # gyro_turn(-40, robot)
+    # wait(2000)
+    # robot.walter.straight(300)
+    # wait(2000)
+    # gyro_turn(-37.5, robot)
+    # wait(2000)
+    
