@@ -5,13 +5,33 @@ from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
-from gyro_turn import gyro_turn
+from move_functions import *
+from gyro_turn import *
+from Container import Container
 
-
-def run4 (ev3, walter, left_motor, right_motor, attach_left_motor, attach_right_motor, gyro):
-    walter.straight(700)
-    walter.turn(45)
-    walter.straight(50)
-    walter.straight(-50)
-    walter.turn(-53)
-    walter.straight(-700)
+ #allign on wall for crabs
+def run4 (robot):
+    robot.walter.straight(183)
+    gyro_turn(90, robot)
+    #crabs
+    robot.walter.straight(-35)
+    wait(2000)
+    stick_down_timeout(250, 190, 1, robot)
+    wait(1000)
+    stick_up(250, 7.5, robot)
+    robot.walter.straight(63)
+    wait(2000)
+    robot.attach_right_motor.run_angle(125, 130, Stop.COAST, False)
+    wait(2000)
+    robot.walter.straight(-192)
+    wait(2000)
+    robot.attach_right_motor.run_until_stalled(125, Stop.COAST, duty_limit=70)
+    wait(2000)
+    robot.walter.straight(-75)
+    wait(2000)
+    robot.attach_right_motor.run_until_stalled(130, Stop.COAST, duty_limit=70)
+    wait(2000)
+    robot.walter.turn(-20)
+    robot.walter.straight(300)
+    robot.walter.turn(20)
+    robot.walter.straight(1000)
