@@ -68,9 +68,9 @@ class Container:
            self.display_error("calibrate gyro")
 
         #adjust gyro turn based on battery of robot
-        if self.ev3.battery.voltage() < 7000:
-           self.maxspeed = 500
-           self.minspeed = 50
+        if self.ev3.battery.voltage() < 8000:
+           self.maxspeed = 400
+           self.minspeed = 45
         else:
            self.maxspeed = 400
            self.minspeed = 30
