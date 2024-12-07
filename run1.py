@@ -34,7 +34,7 @@ def run1 (robot):
 
     robot.walter.straight(47)
     robot.attach_left_motor.run_angle(300, 8, Stop.HOLD, True)
-    robot.walter.straight(25)
+    robot.walter.straight(20)
     robot.attach_left_motor.run_angle(300, 25, Stop.HOLD, True)
     wait(1000)
     gyro_turn(20, robot)

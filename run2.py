@@ -17,14 +17,14 @@ def run2 (robot):
 
     # we have to set settings at the beginning of every run
     
-    robot.walter.settings(600, 350, 300, 115)
+    robot.walter.settings(700, 400, 300, 115)
 
     # get to sumbersible
 
     robot.walter.straight(-35)
     robot.walter.straight(570)
     gyro_turn(-55, robot)
-    claw_down(500, 170, robot)
+    claw_down(500, 172, robot)
     robot.walter.straight(500)
     robot.walter.stop()
     
@@ -36,7 +36,7 @@ def run2 (robot):
 
 # do submerible & angler fish
 
-    claw_up_seconds(60, 2000, robot)
+    claw_up_seconds(100, 1200, robot)
     claw_down(300, 30, robot)
     gyro_turn(-10, robot)
     robot.walter.straight(-150)
@@ -50,20 +50,7 @@ def run2 (robot):
     robot.walter.straight(370)
     robot.walter.stop()
     robot.right_motor.run_angle(400, 80, Stop.HOLD, True)
-    # wait(2000)
-    # gyro_turn(-robot.gyro.angle(), robot)
-    # wait(2000)
 
-    # # beep to know if robot is not stalling after angler fish mission is done
-
-    # robot.ev3.speaker.beep(500, 500)
-    # wait(2000)
-    # gyro_turn(8, robot)6
-    # wait(2000)
-    # robot.walter.straight(18)
-    # wait(2000)
-    # walter_run_for_seconds(robot, 0, 300, 1)
-    # wait(2000)
     
     robot.ev3.speaker.beep(500, 500)
 
@@ -98,26 +85,15 @@ def run2 (robot):
     robot.walter.straight(200)
     wait(100)
     robot.walter.stop()
-    robot.left_motor.run_angle(250, 160)
+    robot.left_motor.run_angle(250, 175)
     wait(100)
     #we use two small moves instead of one big one so we can limit the speed
     robot.walter.straight(100)
     robot.walter.straight(50)
     wait(100)
     robot.walter.turn(-80) 
-    # walter.stop()
-    # robot.right_motor.run_angle(350, 270)
     wait(100)
-    #robot.walter.settings(600, 350, 300, 115)<-- increase straight speed eventually
     robot.walter.straight(650)
 
-    # robot.walter.straight(500)
-    # robot.walter.straight(50)
-    # wait(2000)
-    # gyro_turn(-40, robot)
-    # wait(2000)
-    # robot.walter.straight(300)
-    # wait(2000)
-    # gyro_turn(-37.5, robot)
-    # wait(2000)
+
     
