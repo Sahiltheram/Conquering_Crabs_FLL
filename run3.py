@@ -90,5 +90,6 @@ def run3_part2 (robot):
 # Go back to base
 
      # walter.straight(5)
-     claw_up(400, 35, robot)
+     claw_up(400, 35, robot) 
      robot.walter.straight(-800)
+     claw_up_stalled(1000, 40, robot)
