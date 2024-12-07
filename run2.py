@@ -21,7 +21,7 @@ def run2 (robot):
 
     # get to sumbersible
 
-    robot.walter.straight(-35)
+    walter_run_for_seconds(robot, -450, -450, 0.7)
     robot.walter.straight(570)
     gyro_turn(-55, robot)
     claw_down(500, 172, robot)

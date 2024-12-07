@@ -14,8 +14,8 @@ from gyro_turn import gyro_turn
 def run1 (robot):
 
 #unexpected encounter
-    
     robot.walter.settings(600, 350, 300, 115)
+    walter_run_for_seconds(robot, -450, -450, 0.7)
     robot.left_motor.reset_angle(0)
     robot.right_motor.reset_angle(0)
     robot.walter.straight(295)
