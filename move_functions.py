@@ -19,6 +19,7 @@ def claw_up(speed, angle, robot):
 
 def claw_down(speed, angle, robot):
     robot.attach_left_motor.reset_angle(0)
+    wait(50)
     robot.attach_left_motor.run_angle(speed, -angle)
 
 #use for moving the claw up and down while keeping it in coast

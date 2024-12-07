@@ -11,8 +11,8 @@ from gyro_turn import gyro_turn
 from run1 import *
 from run2 import *
 from run3 import *
-from run4 import *
-from run5 import *
+from run4_part1 import *
+from run4_part2 import *
 
 # combines all missions and runs into one program so that it
 # is easier and saves us time to start runs.
@@ -100,7 +100,8 @@ def masterProgram(robot):
                 run3_part1(robot)    
                 run3_part2(robot)           
             elif run_select == 4:
-                run5(robot)   
+                run4_part1(robot)
+                #run4_part2(robot)    
 
             run_select += 1
             robot.ev3.screen.clear()

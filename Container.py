@@ -60,7 +60,7 @@ class Container:
 
         #check gyro value before first run
         gyro1 = self.gyro.angle()
-        wait(500)
+        wait(1500)
         gyro2 = self.gyro.angle()
         if gyro1 - gyro2 > 3:
            self.display_error("calibrate gyro")
