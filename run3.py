@@ -44,7 +44,7 @@ def run3_part1 (robot):
      robot.attach_left_motor.run_time(10, 13, Stop.BRAKE)
      # turn left to complete mission
      robot.gyro.reset_angle(0)
-     walter_run_for_seconds(robot, -200, 200, 0.5)
+     walter_run_for_seconds(robot, -309, 309, 0.5)
      claw_up_coast(1000, 180, robot)
      gyro_turn(-robot.gyro.angle(), robot)     
 
@@ -85,11 +85,11 @@ def run3_part2 (robot):
      robot.walter.straight(-50)
      gyro_turn(34, robot)
      robot.walter.straight(10)
-     claw_down_seconds(200, 750, robot)
+     claw_down_seconds(409, 750, robot)
      
 # Go back to base
 
      # walter.straight(5)
      claw_up(400, 35, robot) 
-     robot.walter.straight(-800)
+     robot.walter.straight(-650)
      claw_up_stalled(1000, 40, robot)
