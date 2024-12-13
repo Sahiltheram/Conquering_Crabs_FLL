@@ -15,18 +15,19 @@ from Container import Container
  #starting push boat
  
 def run4_part1 (robot):
-    robot.walter.settings(400, 350, 200, 200)
+    robot.walter.settings(500, 350, 200, 200)
     #put samples on boat
-    robot.walter.straight(190)
+    walter_run_for_seconds(robot, 503, 503, 1.2)
     robot.walter.straight(-90)
-    gyro_turn(-93, robot)
-    #allign on wall
+
+def BigBackBoat (robot):
+    robot.walter.settings(400, 350, 200, 200)
+    # #allign on wall
     walter_run_for_seconds(robot, -500, -500, 1)
     robot.walter.straight(226)
     gyro_turn(92, robot)
     robot.walter.straight(333)
     gyro_turn(18, robot)
-    wait(500)
     robot.walter.straight(-15)
     #hit boat most of the way
     stick_down(400, 120, robot)
