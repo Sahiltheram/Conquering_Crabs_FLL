@@ -23,6 +23,7 @@ def masterProgram(robot):
     NUMBER_OF_RUNS = 5
 
     missions_in_run = {
+        0: "Calibration",
         1: "Squid",
         2: "D Arc",
         3: "Coral Tree",
@@ -39,8 +40,8 @@ def masterProgram(robot):
 
         if (run_select > NUMBER_OF_RUNS):
             run_select = NUMBER_OF_RUNS
-        if (run_select < 1):
-            run_select = 1  
+        if (run_select < 0):
+            run_select = 0  
 
         # display run name and number on the screen
         value = missions_in_run[run_select]
@@ -93,7 +94,9 @@ def masterProgram(robot):
             robot.ev3.screen.clear()
             robot.ev3.speaker.beep((220 * run_select), 400)
 
-            if run_select == 1:
+            if run_select == 0:
+                calibrate_color(robot)
+            elif run_select == 1:
                 run1(robot)                
             elif run_select == 2:
                 run2(robot)                
