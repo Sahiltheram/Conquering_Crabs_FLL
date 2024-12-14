@@ -74,3 +74,24 @@ class Container:
         else:
            self.maxspeed = 400
            self.minspeed = 30
+
+        #read color sensor calibration values from file
+
+        try:
+            
+            color_file = open(file_path, 'r')
+            content = color_file.read()
+            color_file.close()
+
+            split = content.split()
+            self.color_white = split[0]
+            self.color_black = split[1]
+                
+
+        except:
+
+            #default values
+
+            self.color_white = 75
+            self.color_black = 8
+        
