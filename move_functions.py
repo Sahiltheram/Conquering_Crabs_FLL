@@ -5,6 +5,7 @@ from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
+from CalibrateColorSensor import *
 
 timer = StopWatch()
 #this is used to allign on walls, mission, and for moving one motor for seconds
@@ -67,10 +68,10 @@ def walter_align_color(robot, left_speed, right_speed):
     is_stopped_right = False
     
     while True:
-        if robot.color_sensor_left.reflection() > 50:
+        if fetch_calibrated_color("LEFT", robot) > 80:
             robot.left_motor.hold()
             is_stopped_left = True
-        if robot.color_sensor_right.reflection() > 50:
+        if fetch_calibrated_color("RIGHT", robot) > 80:
             robot.right_motor.hold()
             is_stopped_right = True
         if (is_stopped_left) and (is_stopped_right):
