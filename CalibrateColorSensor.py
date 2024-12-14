@@ -23,8 +23,8 @@ def scale_color_value(color_white, color_black, color_org_val):
 def calibrate_color(robot):
     
     center_pressed = False
-
-    robot.ev3.screen.draw_text(20, 60, "Place on Black", text_color=Color.BLACK, background_color=None)
+    robot.ev3.screen.set_font(Font(family=None, size=25, bold=False, monospace=False, lang=None, script=None))
+    robot.ev3.screen.draw_text(5, 60, "Place on Black", text_color=Color.BLACK, background_color=None)
     
     while not center_pressed:
         center_pressed = (Button.CENTER in robot.ev3.buttons.pressed())
@@ -36,7 +36,7 @@ def calibrate_color(robot):
     center_pressed = False
 
     robot.ev3.screen.clear()
-    robot.ev3.screen.draw_text(20, 60, "Place on White", text_color=Color.BLACK, background_color=None)
+    robot.ev3.screen.draw_text(5, 60, "Place on White", text_color=Color.BLACK, background_color=None)
     
     wait(1000)
 
