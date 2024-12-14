@@ -21,7 +21,7 @@ def run1 (robot):
     robot.walter.straight(295)
     gyro_turn(-45, robot)
     robot.walter.straight(270)
-    robot.walter.straight(-165)
+    robot.walter.straight(-210)
     gyro_turn(92, robot)
 
 #change_shipping_lanes
@@ -32,9 +32,9 @@ def run1 (robot):
 
     print(robot.gyro.angle())
 
-    robot.walter.straight(47)
+    robot.walter.straight(40)
     robot.attach_left_motor.run_angle(300, 8, Stop.HOLD, True)
-    robot.walter.straight(20)
+    robot.walter.straight(18)
     robot.attach_left_motor.run_angle(300, 25, Stop.HOLD, True)
     wait(1000)
     gyro_turn(20, robot)
@@ -59,7 +59,7 @@ def run1 (robot):
     claw_up(300, 150, robot)
     gyro_turn(55, robot)
     robot.walter.straight(-140)
-    stick_down_timeout(350, 225, 1, robot)
+    stick_down_timeout(350, 218, 1, robot)
     wait(300)
     gyro_turn(-20, robot)
     gyro_turn(-20, robot)
