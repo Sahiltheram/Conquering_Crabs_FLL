@@ -21,7 +21,7 @@ def run1 (robot):
     robot.walter.straight(295)
     gyro_turn(-45, robot)
     robot.walter.straight(270)
-    robot.walter.straight(-210)
+    robot.walter.straight(-195)
     gyro_turn(92, robot)
 
 #change_shipping_lanes
@@ -34,34 +34,33 @@ def run1 (robot):
 
     robot.walter.straight(40)
     robot.attach_left_motor.run_angle(300, 8, Stop.HOLD, True)
-    robot.walter.straight(18)
+    robot.walter.straight(30)
     robot.attach_left_motor.run_angle(300, 25, Stop.HOLD, True)
     wait(1000)
     gyro_turn(20, robot)
     robot.walter.stop()
     claw_down_timeout(300, 5, 0.3, robot)
-    robot.walter.straight(-100)
+    robot.walter.straight(-128)
     claw_up_stalled(300, 50, robot)
 
 # move towards radar
 
     gyro_turn(-56, robot)
-    robot.walter.straight(470)
-    gyro_turn(-39, robot)
+    robot.walter.straight(503)
+    gyro_turn(-29, robot)
 
 # do the radar
 
     claw_down_timeout(345, 230, 1, robot)
-    robot.walter.straight(-210)
+    robot.walter.straight(-180)
 
 # green sample mission
 
     claw_up(300, 150, robot)
-    gyro_turn(55, robot)
-    robot.walter.straight(-140)
+    gyro_turn(54, robot)
+    robot.walter.straight(-90)
     stick_down_timeout(350, 218, 1, robot)
     wait(300)
-    gyro_turn(-20, robot)
-    gyro_turn(-20, robot)
+    walter.turn(-60)
     robot.walter.straight(-850)
     stick_up(200, 50, robot)
